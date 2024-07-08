@@ -15,19 +15,9 @@ public:
 
   RoomOne() : player(Player(Vector2{2*BLOCK, 2*BLOCK})) {};
 
-  void Draw() {
-    player.Draw();
-  }
-
-  SceneState Change() {
-
-    if (IsKeyPressed(KEY_S)) {
-      return MAIN_MENU;
-    } 
-
-    return GAMEPLAY;
-
-  }
+  void Draw();
+  void Init();
+  SceneState Change();
 
 };
 

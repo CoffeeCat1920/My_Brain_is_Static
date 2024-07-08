@@ -10,6 +10,9 @@ private:
   
   Vector2 position;
 
+  Image playerImg;
+  Texture2D playerTexture;
+
 public:
 
   Player() {
@@ -20,7 +23,13 @@ public:
     this->position = position;
   }
 
+  ~Player() {
+    //UnloadImage(playerImg);
+    //UnloadTexture(playerTexture);
+  }
+
   void Draw(); 
+  void Init();
 
 };
 

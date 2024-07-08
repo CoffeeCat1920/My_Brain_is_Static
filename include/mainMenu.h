@@ -10,12 +10,23 @@ class MainMenu {
 
 private:
 
-  std::string Menu = "Main";
+  const char *start = "Start";
 
-  Image dest;
+  Font boldFont;
+  Font textFont;
 
 public:
 
+  MainMenu() {
+
+  }
+
+  ~MainMenu() {
+    //UnloadFont(boldFont);
+    //UnloadFont(textFont);
+  }
+
+  void Init();
   void Draw(); 
   bool Change();
 

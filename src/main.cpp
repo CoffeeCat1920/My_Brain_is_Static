@@ -2,7 +2,7 @@
 #include "../include/settings.h"
 #include "../include/gameManager.h"
 #include "../include/mainMenu.h"
-#include "../include/Room1.cpp" 
+#include "../include/Room1.h" 
 
 class Game {
 
@@ -11,9 +11,20 @@ private:
   MainMenu mainMenu;
   RoomOne room; 
   
+  SceneState currentState;
+  
 public:
 
   Game() {
+
+    currentState = MAIN_MENU;
+
+  }
+
+  void Init() {
+
+    mainMenu.Init();
+    room.Init();
 
   }
 
@@ -51,6 +62,9 @@ int main (int argc, char *argv[]) {
 
   InitWindow(BOARD * BLOCK,  BOARD * BLOCK, "WHY IS MY BRAIN STATIC");    
 
+  game.Init();
+
+  //ToggleFullscreen();
 
   while (!WindowShouldClose()) {
 
@@ -58,11 +72,13 @@ int main (int argc, char *argv[]) {
 
     game.Draw();
 
-    ClearBackground(BLACK);
+    ClearBackground(BACKGROUND);
 
     EndDrawing();
 
   }
+
+  CloseWindow();
 
   return 0;
 }

@@ -8,6 +8,4 @@ enum SceneState {
   GAMEPLAY
 };
 
-SceneState currentState = MAIN_MENU;
-
 #endif 

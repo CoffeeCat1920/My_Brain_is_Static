@@ -1,4 +1,3 @@
-
 # Define the compiler
 CXX = g++
 
