@@ -62,6 +62,8 @@ int main (int argc, char *argv[]) {
 
   InitWindow(BOARD * BLOCK,  BOARD * BLOCK, "WHY IS MY BRAIN STATIC");    
 
+  SetTargetFPS(60);
+
   game.Init();
 
   //ToggleFullscreen();

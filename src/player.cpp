@@ -4,16 +4,27 @@ void Player::Init() {
 
   playerImg = LoadImage("./assets/pngs/player/Player.png");
 
-  playerTexture = LoadTextureFromImage(playerImg);
+  std::cout << "The Image is : " << IsImageReady(playerImg) << std::endl;
 
-  SetTextureFilter(playerTexture, TEXTURE_FILTER_POINT);
+  spriteAnimation = SpriteAnimation(playerImg, 64, Vector2{5, 1}, 0.0f, WHITE);
 
-  UnloadImage(playerImg);
+}
+
+Vector2 Player::Move( Vector2 position ) {
+
+  if (IsKeyDown(KEY_RIGHT)) position.x += 5.0f;
+  if (IsKeyDown(KEY_LEFT)) position.x -= 5.0f;
+  if (IsKeyDown(KEY_DOWN)) position.y += 5.0f;
+  if (IsKeyDown(KEY_UP)) position.y -= 5.0f;
+
+  return position;
 
 }
 
 void Player::Draw() {
 
-  DrawTextureV(playerTexture, Vector2{BLOCK * 3, BLOCK * 3}, WHITE);
+  position = Move( position );
+
+  spriteAnimation.Draw(position); 
 
 }

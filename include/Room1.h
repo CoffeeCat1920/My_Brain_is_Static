@@ -13,7 +13,7 @@ private:
 
 public:
 
-  RoomOne() : player(Player(Vector2{2*BLOCK, 2*BLOCK})) {};
+  RoomOne() : player((Vector2{2*BLOCK, 2*BLOCK})) {};
 
   void Draw();
   void Init();
