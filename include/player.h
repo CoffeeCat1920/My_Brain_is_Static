@@ -21,7 +21,9 @@ private:
 
 public:
 
-  Player(Vector2 position) : position(position) {}
+  Player(Vector2 position) : position(position), spriteAnimation( SpriteAnimation( Vector2 {BLOCK, BLOCK} ) ) {
+
+  }
 
   ~Player() {
     //UnloadImage(playerImg);
@@ -31,6 +33,8 @@ public:
   Vector2 Move( Vector2 position );
   void Draw(); 
   void Init();
+  Rectangle GetRectangle();
+  bool CheckCollision( Rectangle rec );
 
 };
 

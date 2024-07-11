@@ -1,5 +1,9 @@
 #include "../include/animation.h"
 
+Vector2 SpriteAnimation::GetPosition() {
+  return Vector2 { position.x, position.y };
+}
+
 void SpriteAnimation::Draw(Vector2 position) {
 
   bool goingUp = true;
@@ -20,6 +24,20 @@ void SpriteAnimation::Draw(Vector2 position) {
 
   } 
 
-  DrawTexturePro(texture, Rectangle { (float)frameSize * currentFrame, (float)frameSize * currentFrame, (float)frameSize, (float)frameSize } , Rectangle { position.x, position.y, (float)frameSize , (float)frameSize } , Vector2{0, 0}, rotation, tint); 
+  Rectangle source = Rectangle {position.x, position.y, (float)frameSize, (float)frameSize};
+
+  DrawTexturePro(texture, Rectangle { (float)frameSize * currentFrame, (float)frameSize * currentFrame, (float)frameSize, (float)frameSize } , source, Vector2{0, 0}, rotation, tint); 
+  
+  this->position = position;
 
 }
+
+
+
+Rectangle SpriteAnimation::GetRectangle() {
+
+  Rectangle source = Rectangle {position.x, position.y, (float)frameSize, (float)frameSize};
+
+  return  source;
+
+}  

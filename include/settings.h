@@ -1,5 +1,5 @@
-#define BLOCK 100 
-#define BOARD 6
+#define BLOCK 64 
+#define BOARD 8
 #define FONT_SIZE 24
 
 #define DARK_BLUE (Color) {8, 11, 18, 255}

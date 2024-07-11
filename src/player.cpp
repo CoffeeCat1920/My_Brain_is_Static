@@ -6,7 +6,7 @@ void Player::Init() {
 
   std::cout << "The Image is : " << IsImageReady(playerImg) << std::endl;
 
-  spriteAnimation = SpriteAnimation(playerImg, 64, Vector2{5, 1}, 0.0f, WHITE);
+  spriteAnimation = SpriteAnimation(playerImg, Vector2{ position.x, position.y }, 64, Vector2{5, 1}, 0.0f, WHITE);
 
 }
 
@@ -26,5 +26,19 @@ void Player::Draw() {
   position = Move( position );
 
   spriteAnimation.Draw(position); 
+  
+}
+
+Rectangle Player::GetRectangle() {
+
+  Rectangle rec = spriteAnimation.GetRectangle();
+
+  return rec;
+
+}
+
+bool Player::CheckCollision( Rectangle rec ) {
+
+  return CheckCollisionRecs(this->GetRectangle(), rec);
 
 }

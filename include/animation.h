@@ -20,18 +20,22 @@ private:
   int frameSpeed;
   Vector2 numOfFrames;
 
+  Vector2 position;
+
   Color tint;
 
 public: 
 
-  SpriteAnimation() {
+  SpriteAnimation(Vector2 position) : position(position) {
 
   }
 
-  SpriteAnimation(Image atlas, int frameSize, Vector2 numOfFrames, float rotation, Color tint) {
+  SpriteAnimation(Image atlas, Vector2 position, int frameSize, Vector2 numOfFrames, float rotation, Color tint) {
 
     this->atlas = atlas;
     this->texture = LoadTextureFromImage(atlas);
+
+    this->position = position;
 
     this->frameSize = frameSize;
     this->numOfFrames = numOfFrames;
@@ -47,9 +51,10 @@ public:
 
   }
 
-  void Draw(Vector2 position);
+  void Draw( Vector2 position );
   void Animate();
-
+  Vector2 GetPosition();
+  Rectangle GetRectangle();
 
 };
 
