@@ -7,7 +7,13 @@ void RoomOne::Init() {
 }
 
 void RoomOne::Draw() {
+
   player.Draw();
+
+  DrawRectangleRec(obstical, WHITE);
+
+  std::cout << player.CheckCollision(obstical) << std::endl;
+
 }
 
 SceneState RoomOne::Change() {

@@ -10,10 +10,15 @@ class RoomOne {
 private:
 
   Player player; 
+  Rectangle obstical;
 
 public:
 
-  RoomOne() : player((Vector2{2*BLOCK, 2*BLOCK})) {};
+  RoomOne() : player((Vector2{2*BLOCK, 2*BLOCK})) {
+    
+    obstical = Rectangle{ BLOCK * 3, BLOCK * 3, BLOCK, BLOCK };
+
+  };
 
   void Draw();
   void Init();
